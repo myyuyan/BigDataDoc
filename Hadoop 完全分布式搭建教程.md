@@ -10,9 +10,13 @@
 | slave1 | 172.16.30.62 |
 | slave2 | 172.16.30.63 |
 
+
+
 ## 前期配置（每台主机都要进行的操作）
 
 ------
+
+
 
 ### 关闭防火墙
 
@@ -23,6 +27,8 @@ systemctl disable firewalld
 
 ----
 
+
+
 ### 关闭 selinux
 
 修改/etc/selinux/config 文件
@@ -30,6 +36,8 @@ systemctl disable firewalld
 将SELINUX=enforcing改为SELINUX=disabled
 
 ---------
+
+
 
 ### 配置主机名映射
 
@@ -43,6 +51,8 @@ vim /etc/hosts
 
 ---------------
 
+
+
 ### 配置主机名
 
 ```shell
@@ -54,6 +64,8 @@ HOSTNAME=master ####每台主机填写对应的主机名称 slave1 slave2 master
 
 ----------
 
+
+
 ### 配置免密登陆
 
 ```shell
@@ -64,6 +76,8 @@ ssh-copy-id slave2
 ```
 
 -----------------
+
+
 
 ### 重启主机使配置生效
 
