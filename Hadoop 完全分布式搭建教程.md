@@ -89,7 +89,7 @@ reboot
 
 
 
-## 下载java和Hadoop安装包
+## 下载java和Hadoop安装包（在所有节点配置）
 
 ------
 
@@ -120,7 +120,7 @@ mv /root/app/hadoop-2.6.5 /root/app/hadoop
 
 
 
-## 配置JAVA_HOME 和 HADOOP_HOME
+## 配置JAVA_HOME 和 HADOOP_HOME（在所有节点配置）
 
 -------------------
 
@@ -144,7 +144,7 @@ source /etc/profile
 
 
 
-## 配置Hadoop
+## 配置Hadoop（在主节点配置）
 
 -----
 
@@ -277,18 +277,28 @@ cp mapred-site.xml.template mapred-site.xml
 
 
 
-## 初始化Hadoop
-
-------
-
-创建以下几个目录
+## 将配置文件分配从主节点给所有子节点（在主节点操作）
 
 ```shell
+scp -r /root/app/hadoop/etc/hadoop slave1:/root/app/hadoop/etc/hadoop
+scp -r /root/app/hadoop/etc/hadoop slave2:/root/app/hadoop/etc/hadoop
+```
+
+
+
+-----------------
+
+
+
+## 初始化Hadoop
+
+```shell
+## 创建以下四个目录(在各个节点操作)
 mkdir /root/app/hadoop/dfs
 mkdir /root/app/hadoop/dfs/name
 mkdir /root/app/hadoop/dfs/data
 mkdir /root/app/hadoop/tmp
-## 初始化Hadoop
+## 初始化Hadoop（在主节点操作）
 hadoop namenode -format
 ```
 
@@ -296,7 +306,7 @@ hadoop namenode -format
 
 
 
-## 启动Hadoop
+## 启动Hadoop（在主节点操作）
 
 --------------
 
