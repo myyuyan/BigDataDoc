@@ -36,6 +36,7 @@ mv hbase-2.1.5 hbase
 
 ## 配置hbase-env
 cd /root/app/hbase
+cp ./lib/client-facing-thirdparty/htrace-core-3.1.0-incubating.jar ./lib/
 mkdir pids
 vim conf/hbase-env.sh
 ##添加以下内容##
@@ -81,7 +82,7 @@ vim conf/hbase-site.xml
         <!-- RegionServers共享目录 -->
         <property>
                 <name>hbase.rootdir</name>
-                <value>hdfs://master:9000/hbase</value>
+                <value>hdfs://master:8020/hbase</value>
         </property>
         <!-- 开启分布式模式 -->
         <property>
