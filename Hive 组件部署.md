@@ -110,6 +110,18 @@ vim hive-site.xml
 </configuration>
 ```
 
+vim /root/app/hive/conf/hive-env.sh
+
+```shell
+## 追加以下内容
+
+HADOOP_HOME=/root/app/hadoop
+export HIVE_CONF_DIR=/root/app/hive/conf
+export HIVE_AUX_JARS_PATH=/root/app/hive/lib
+```
+
+
+
 拷贝 JDBC 驱动包
 
 ```she
